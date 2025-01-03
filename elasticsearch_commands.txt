@@ -1,0 +1,19 @@
+curl -H "Content-Type: application/json" --request PUT 'http://localhost:9200/autocomplete' \
+-d '{
+   "mappings": {
+       "properties": {
+           "title": {
+               "type": "search_as_you_type"
+           }
+       }
+   }
+}'
+
+curl -H "Content-Type: application/json" --request POST 'http://localhost:9200/_reindex?pretty' --data-raw '{
+ "source": {
+   "index": "movies"
+ },
+ "dest": {
+   "index": "autocomplete"
+ }
+}' | grep "total\|created\|failures"

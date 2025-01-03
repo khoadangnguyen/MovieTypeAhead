@@ -1,0 +1,17 @@
+services:
+  elasticsearch:
+    image: elasticsearch:8.16.1
+    ports:
+      - 9200:9200
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    volumes:
+      - ./elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - elasticsearch_network
+
+networks:
+  elasticsearch_network:
+    name: elasticsearch_network
+    driver: bridge
