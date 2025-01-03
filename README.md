@@ -9,6 +9,6 @@ users types, the script dynamically queries Elasticsearch and retrieves relevant
 
 ![Start](./images/input.png)
 
-![Example input and result](./images/input.png)
+![Example input and result](./images/result.png)
 
 
